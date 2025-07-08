@@ -1,0 +1,41 @@
+/* app/globals.css */
+
+/* ধাপ ১: Tailwind v3-এর বেস স্টাইল, কম্পোনেন্ট এবং ইউটিলিটি ক্লাসগুলো ইম্পোর্ট করুন */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ধাপ ২: আপনার CSS ভ্যারিয়েবলগুলো (থিম) ঠিক রাখুন। এটি একদম পারফেক্ট আছে। */
+:root {
+  --background: 210 40% 98%;
+  --foreground: 222 84% 4.9%;
+
+  --card: 210 40% 96.1%;
+  --card-foreground: 222 84% 4.9%;
+
+  --primary: 221 83% 53%;
+  --primary-foreground: 210 40% 98%;
+
+  --border: 214 32% 91.4%;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: 222 84% 4.9%;
+    --foreground: 210 40% 98%;
+
+    --card: 222 84% 4.9%;
+    --card-foreground: 210 40% 98%;
+
+    --primary: 217 91% 60.2%;
+    --primary-foreground: 222 84% 4.9%;
+
+    --border: 217 33% 17%;
+  }
+}
+
+/* ধাপ ৩: body-র জন্য বেসিক স্টাইলগুলো দিন */
+body {
+  background-color: hsl(var(--background));
+  color: hsl(var(--foreground));
+}
