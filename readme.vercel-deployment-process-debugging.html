@@ -1,0 +1,355 @@
+<!DOCTYPE html><html><head>
+      <title>readme.vercel-deployment-process-debugging</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\HBR\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p>check the logs Jul 09 11:53:06.55<br>
+GET<br>
+500<br>
+build-a-beast-last.vercel.app<br>
+/api/auth/signin/github<br>
+2<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async /var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411 at async e_.execute (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880) at async e_.handle (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:25561) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:53:06.23<br>
+GET<br>
+500<br>
+build-a-beast-last.vercel.app<br>
+/api/auth/signin/github<br>
+2<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async /var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411 at async e_.execute (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880) at async e_.handle (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:25561) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:53:05.88<br>
+POST<br>
+303<br>
+build-a-beast-last.vercel.app<br>
+/<br>
+4<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async a3 (/var/task/.next/server/chunks/229.js:415:62105) at async o (/var/task/.next/server/app/page.js:1:3014) at async /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:418 at async rE (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:8146) at async r7 (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:18:1144) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:26420) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:53:04.03<br>
+GET<br>
+200<br>
+build-a-beast-last.vercel.app<br>
+/<br>
+Jul 09 11:52:34.00<br>
+GET<br>
+500<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/api/auth/signin/github<br>
+2<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async /var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411 at async e_.execute (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880) at async e_.handle (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:25561) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:52:33.57<br>
+GET<br>
+500<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/api/auth/signin/github<br>
+2<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async /var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411 at async e_.execute (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880) at async e_.handle (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:25561) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:52:32.97<br>
+POST<br>
+303<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/<br>
+4<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async a3 (/var/task/.next/server/chunks/229.js:415:62105) at async o (/var/task/.next/server/app/page.js:1:3014) at async /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:418 at async rE (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:8146) at async r7 (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:18:1144) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:26420) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:52:24.16<br>
+GET<br>
+200<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/favicon.ico<br>
+Jul 09 11:52:24.15<br>
+GET<br>
+200<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/favicon.ico<br>
+Jul 09 11:52:23.48<br>
+GET<br>
+200<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/<br>
+Jul 09 11:52:23.43<br>
+GET<br>
+200<br>
+build-a-beast-last-kdsp2xmy3-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/<br>
+Jul 09 11:40:00.80<br>
+GET<br>
+500<br>
+build-a-beast-last.vercel.app<br>
+/api/auth/signin/github<br>
+2<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async /var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411 at async e_.execute (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880) at async e_.handle (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:25561) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:40:00.36<br>
+GET<br>
+500<br>
+build-a-beast-last.vercel.app<br>
+/api/auth/signin/github<br>
+2<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async /var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411 at async e_.execute (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880) at async e_.handle (/var/task/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:25561) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:39:59.91<br>
+POST<br>
+303<br>
+build-a-beast-last.vercel.app<br>
+/<br>
+4<br>
+at /var/task/.next/server/chunks/229.js:415:53523 at aF (/var/task/.next/server/chunks/229.js:415:56121) at process.processTicksAndRejections (node:internal/process/task_queues:105:5) at async a3 (/var/task/.next/server/chunks/229.js:415:62105) at async o (/var/task/.next/server/app/page.js:1:3014) at async /var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:16:418 at async rE (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:15:8146) at async r7 (/var/task/node_modules/next/dist/compiled/next-server/app-page.runtime.prod.js:18:1144) at async en (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:16:26420) at async ea.responseCache.get.routeKind (/var/task/node_modules/next/dist/compiled/next-server/server.runtime.prod.js:17:1028)<br>
+Jul 09 11:39:54.81<br>
+GET<br>
+200<br>
+build-a-beast-last.vercel.app<br>
+/favicon.ico<br>
+Jul 09 11:39:53.29<br>
+GET<br>
+200<br>
+build-a-beast-last.vercel.app<br>
+/<br>
+Jul 09 11:39:48.80<br>
+GET<br>
+200<br>
+build-a-beast-last-q9m90v08h-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/favicon.ico<br>
+Jul 09 11:39:48.79<br>
+GET<br>
+200<br>
+build-a-beast-last-q9m90v08h-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/favicon.ico<br>
+Jul 09 11:39:47.97<br>
+GET<br>
+200<br>
+build-a-beast-last-q9m90v08h-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/<br>
+Jul 09 11:39:47.97<br>
+GET<br>
+200<br>
+build-a-beast-last-q9m90v08h-mdhaseeb079-gmailcoms-projects.vercel.app<br>
+/<br>
+No more logs to show</p>
+<p>Of course. Here is a detailed analysis of the logs you provided.</p>
+<h3 id="high-level-summary">High-Level Summary </h3>
+<p>The logs show a critical and recurring <strong><code>500 Internal Server Error</code></strong> when your application attempts to handle a GitHub sign-in request. The user is successfully redirected to the sign-in endpoint, but the server-side code crashes immediately upon receiving the request.</p>
+<p>This issue is consistently happening on the endpoint <strong><code>/api/auth/signin/github</code></strong>, which strongly indicates a problem with your NextAuth.js (or similar auth library) configuration, specifically related to the GitHub provider.</p>
+<hr>
+<h3 id="detailed-event-breakdown">Detailed Event Breakdown </h3>
+<p>Let's follow the user's journey based on the logs from around 11:53 AM:</p>
+<ol>
+<li>
+<p><strong><code>Jul 09 11:53:04.03 | GET / | 200</code></strong></p>
+<ul>
+<li>A user successfully loads the homepage of your application (<code>build-a-beast-last.vercel.app</code>). Everything is working correctly at this point.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Jul 09 11:53:05.88 | POST / | 303</code></strong></p>
+<ul>
+<li>The user likely clicked a "Sign in with GitHub" button on the homepage.</li>
+<li>This action triggered a <code>POST</code> request, which was handled by a Next.js Server Action or a form submission.</li>
+<li>The server responded with a <code>303 See Other</code> status code. This is a standard redirect and is the <strong>correct behavior</strong>. It tells the browser to go to a different URL, which in an OAuth flow is typically the provider's sign-in handler.</li>
+</ul>
+</li>
+<li>
+<p><strong><code>Jul 09 11:53:06.23 &amp; :06.55 | GET /api/auth/signin/github | 500</code></strong></p>
+<ul>
+<li><strong>This is the point of failure.</strong> The browser, following the <code>303</code> redirect, makes a <code>GET</code> request to your app's internal sign-in handler for GitHub.</li>
+<li>Instead of redirecting the user to GitHub's actual login page, your server crashes and returns a <code>500 Internal Server Error</code>.</li>
+<li>The error happens within your Next.js server-side code (<code>/var/task/.next/server/chunks/229.js</code>), confirming it's not a client-side issue.</li>
+</ul>
+</li>
+</ol>
+<p>This exact sequence of events is repeated at earlier times (<code>11:52:xx</code> and <code>11:40:xx</code>) and across different deployment URLs, proving it's a persistent bug in your application's code or configuration.</p>
+<hr>
+<h3 id="core-problem--probable-causes">Core Problem &amp; Probable Causes </h3>
+<p>The core problem is that the NextAuth.js route handler for the GitHub provider is misconfigured, causing the server to crash. The most common reasons for this are:</p>
+<ol>
+<li>
+<p><strong>Missing or Incorrect Environment Variables on Vercel:</strong> This is the most likely cause. Your local <code>.env.local</code> file is not uploaded to Vercel. You must configure environment variables in the Vercel project settings.</p>
+<ul>
+<li><code>GITHUB_ID</code> (Client ID) is missing or wrong.</li>
+<li><code>GITHUB_SECRET</code> (Client Secret) is missing or wrong.</li>
+</ul>
+</li>
+<li>
+<p><strong>Missing Authentication Secret:</strong> NextAuth.js requires a secret to sign cookies and tokens.</p>
+<ul>
+<li><code>AUTH_SECRET</code> (or <code>NEXTAUTH_SECRET</code> for older versions) is not set in your Vercel environment variables.</li>
+</ul>
+</li>
+<li>
+<p><strong>Incorrect GitHub OAuth App Configuration:</strong> The settings in your GitHub OAuth App might not match what your Vercel deployment expects.</p>
+<ul>
+<li>The <strong>"Authorization callback URL"</strong> is incorrect. For your production app, it <strong>must</strong> be set to:<br>
+<code>https://build-a-beast-last.vercel.app/api/auth/callback/github</code></li>
+</ul>
+</li>
+<li>
+<p><strong>Missing <code>AUTH_URL</code> Environment Variable:</strong> In serverless environments like Vercel, NextAuth.js sometimes needs to be explicitly told the canonical URL of the application.</p>
+<ul>
+<li>The <code>AUTH_URL</code> (or <code>NEXTAUTH_URL</code>) variable should be set to <code>https://build-a-beast-last.vercel.app</code>.</li>
+</ul>
+</li>
+</ol>
+<hr>
+<h3 id="recommended-actions-checklist">Recommended Actions (Checklist) </h3>
+<p>Follow these steps to debug and fix the issue.</p>
+<h4 id="1-check-your-vercel-environment-variables">1. Check Your Vercel Environment Variables </h4>
+<ol>
+<li>
+<p>Go to your project on Vercel.</p>
+</li>
+<li>
+<p>Navigate to <strong>Settings -&gt; Environment Variables</strong>.</p>
+</li>
+<li>
+<p>Ensure the following variables are present and have the correct values for the <strong>Production</strong> environment (and Preview/Development if needed):</p>
+<ul>
+<li><code>GITHUB_ID</code>: Your Client ID from the GitHub OAuth App.</li>
+<li><code>GITHUB_SECRET</code>: Your Client Secret from the GitHub OAuth App.</li>
+<li><code>AUTH_SECRET</code>: A long, random, secret string. You can generate one using <code>openssl rand -base64 32</code> in your terminal.</li>
+<li><code>AUTH_URL</code>: Set this to <code>https://build-a-beast-last.vercel.app</code></li>
+</ul>
+<blockquote>
+<p><strong>Important:</strong> After adding or changing environment variables, you <strong>must redeploy</strong> your application for the changes to take effect.</p>
+</blockquote>
+</li>
+</ol>
+<h4 id="2-verify-your-github-oauth-app-settings">2. Verify Your GitHub OAuth App Settings </h4>
+<ol>
+<li>Go to your GitHub account settings.</li>
+<li>Navigate to <strong>Developer settings -&gt; OAuth Apps</strong>.</li>
+<li>Select your <code>build-a-beast</code> application.</li>
+<li>Check that the <strong>"Homepage URL"</strong> is <code>https://build-a-beast-last.vercel.app</code>.</li>
+<li>Check that the <strong>"Authorization callback URL"</strong> is exactly <code>https://build-a-beast-last.vercel.app/api/auth/callback/github</code>. A typo or using <code>http</code> instead of <code>https</code> will cause failure.</li>
+</ol>
+<h4 id="3-review-your-nextauthjs-configuration-code">3. Review Your NextAuth.js Configuration Code </h4>
+<p>Ensure your <code>app/api/auth/[...nextauth]/route.ts</code> (or <code>.js</code>) file correctly references the environment variables. It should look something like this:</p>
+<pre data-role="codeBlock" data-info="typescript" class="language-typescript typescript"><code><span class="token keyword keyword-import">import</span> NextAuth <span class="token keyword keyword-from">from</span> <span class="token string">"next-auth"</span><span class="token punctuation">;</span>
+<span class="token keyword keyword-import">import</span> GithubProvider <span class="token keyword keyword-from">from</span> <span class="token string">"next-auth/providers/github"</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-export">export</span> <span class="token keyword keyword-const">const</span> authOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+  providers<span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function">GithubProvider</span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      clientId<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">GITHUB_ID</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// Make sure the variable name matches</span>
+      clientSecret<span class="token operator">:</span> process<span class="token punctuation">.</span>env<span class="token punctuation">.</span><span class="token constant">GITHUB_SECRET</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// Make sure the variable name matches</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+  <span class="token comment">// The secret is automatically picked up if AUTH_SECRET is set,</span>
+  <span class="token comment">// but explicitly defining it can help with debugging.</span>
+  <span class="token comment">// secret: process.env.AUTH_SECRET,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> handler <span class="token operator">=</span> <span class="token function">NextAuth</span><span class="token punctuation">(</span>authOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-export">export</span> <span class="token punctuation">{</span> handler <span class="token keyword keyword-as">as</span> <span class="token constant">GET</span><span class="token punctuation">,</span> handler <span class="token keyword keyword-as">as</span> <span class="token constant">POST</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>By methodically checking these three areas—Vercel environment variables, GitHub settings, and the NextAuth code—you should be able to identify and fix the root cause of this <code>500</code> error.</p>
+<p>অবশ্যই! আমি আপনাকে "স্টেপ-ব্যাক প্রম্পটিং" পদ্ধতি ব্যবহার করে এই লগগুলো বাংলায় বিশ্লেষণ করে দিচ্ছি। এই পদ্ধতিতে আমরা সরাসরি সমাধানে না গিয়ে, প্রথমে মূল বিষয়টি বুঝব এবং তারপর আপনার নির্দিষ্ট সমস্যাটি সমাধান করব।</p>
+<h3 id="ধাপ-১-স্টেপ-ব্যাক-মূল-বিষয়টি-বোঝা"><strong>ধাপ ১: স্টেপ-ব্যাক (মূল বিষয়টি বোঝা)</strong> </h3>
+<p>সরাসরি আপনার এরর (error) নিয়ে কথা বলার আগে, চলুন এক ধাপ পেছনে গিয়ে বুঝি যে "Sign in with GitHub" কীভাবে কাজ করে। এই প্রক্রিয়াতে মূলত তিনটি পক্ষ থাকে:</p>
+<ol>
+<li><strong>আপনার অ্যাপ (build-a-beast-last.vercel.app):</strong> যেখানে ব্যবহারকারী লগইন করতে চায়।</li>
+<li><strong>ব্যবহারকারী (User):</strong> যিনি লগইন করছেন।</li>
+<li><strong>গিটহাব (GitHub):</strong> যে ব্যবহারকারীর পরিচয় নিশ্চিত করে।</li>
+</ol>
+<p><strong>প্রক্রিয়াটা সাধারণত এমন হয়:</strong></p>
+<ol>
+<li>ব্যবহারকারী আপনার অ্যাপে "Sign in with GitHub" বাটনে ক্লিক করে।</li>
+<li>আপনার অ্যাপ ব্যবহারকারীকে গিটহাবের লগইন পেজে পাঠাতে প্রস্তুত হয়। <strong>এই প্রস্তুতির জন্য আপনার অ্যাপের কিছু গোপন তথ্য বা "চাবি" (keys) দরকার হয়</strong>, যেমন <code>GITHUB_ID</code> এবং <code>GITHUB_SECRET</code>।</li>
+<li>আপনার অ্যাপ ব্যবহারকারীকে গিটহাবের কাছে পাঠিয়ে দেয়।</li>
+<li>গিটহাব ব্যবহারকারীকে লগইন করতে এবং আপনার অ্যাপকে অনুমতি দিতে বলে।</li>
+<li>ব্যবহারকারী অনুমতি দিলে, গিটহাব তাকে আবার আপনার অ্যাপের একটি নির্দিষ্ট ঠিকানায় (<code>Callback URL</code>) ফেরত পাঠায়।</li>
+<li>আপনার অ্যাপ সেই ফেরত আসা তথ্য যাচাই করে ব্যবহারকারীকে লগইন করিয়ে দেয়।</li>
+</ol>
+<p>এই পুরো প্রক্রিয়াকে OAuth বলা হয়। এখন চলুন আপনার সমস্যায় ফেরা যাক।</p>
+<hr>
+<h3 id="ধাপ-২-আপনার-নির্দিষ্ট-সমস্যা-ও-তার-কারণ"><strong>ধাপ ২: আপনার নির্দিষ্ট সমস্যা ও তার কারণ</strong> </h3>
+<p>আপনার লগের দিকে তাকালে আমরা একটি নির্দিষ্ট প্যাটার্ন দেখতে পাই:</p>
+<ol>
+<li><strong><code>GET / | 200</code></strong>: ব্যবহারকারী আপনার অ্যাপের হোমপেজ সফলভাবে লোড করছে। (উদাহরণ: <code>Jul 09 11:53:04.03</code>)</li>
+<li><strong><code>POST / | 303</code></strong>: ব্যবহারকারী সম্ভবত "Sign in" বাটনে ক্লিক করেছে। আপনার সার্ভার তাকে অন্য একটি পেজে যাওয়ার জন্য নির্দেশ (redirect) দিয়েছে। এটাও সঠিক আচরণ। (উদাহরণ: <code>Jul 09 11:53:05.88</code>)</li>
+<li><strong><code>GET /api/auth/signin/github | 500</code></strong>: <strong>এখানেই মূল সমস্যাটি হচ্ছে।</strong> আপনার সার্ভার যখন ব্যবহারকারীকে গিটহাবে পাঠানোর চেষ্টা করছে (<code>/api/auth/signin/github</code> এ), তখনই এটি ক্র্যাশ করছে এবং <code>500 Internal Server Error</code> দিচ্ছে।</li>
+</ol>
+<p><strong>এর সহজ অর্থ হলো:</strong> আপনার অ্যাপ গিটহাবের সাথে কথা বলা শুরু করার আগেই ভেতরের কোনো সমস্যার কারণে বন্ধ হয়ে যাচ্ছে।</p>
+<p>ওপরে বলা OAuth প্রক্রিয়ার ২ নম্বর ধাপে আপনার অ্যাপটি ব্যর্থ হচ্ছে। এর <strong>সবচেয়ে সম্ভাব্য কারণ</strong> হলো, আপনার অ্যাপ Vercel-এ چلানোর সময় প্রয়োজনীয় "গোপন চাবি" বা তথ্যগুলো খুঁজে পাচ্ছে না।</p>
+<hr>
+<h3 id="ধাপ-৩-ধাপে-ধাপে-সমাধান"><strong>ধাপ ৩: ধাপে ধাপে সমাধান</strong> </h3>
+<p>এই সমস্যাটি সমাধান করার জন্য নিচের checklist অনুসরণ করুন।</p>
+<h4 id="১-vercel-এনভায়রনমেন্ট-ভেরিয়েবল-environment-variables-চেক-করুন-সবচেয়ে-গুরুত্বপূর্ণ"><strong>১. Vercel এনভায়রনমেন্ট ভেরিয়েবল (Environment Variables) চেক করুন (সবচেয়ে গুরুত্বপূর্ণ)</strong> </h4>
+<p>আপনার লোকাল কম্পিউটারের <code>.env.local</code> ফাইল Vercel-এ আপলোড হয় না। আপনাকে এই তথ্যগুলো Vercel প্রজেক্টে ম্যানুয়ালি যোগ করতে হবে।</p>
+<ol>
+<li>আপনার Vercel ড্যাশবোর্ডে যান এবং <code>build-a-beast-last</code> প্রজেক্টটি সিলেক্ট করুন।</li>
+<li><strong>Settings</strong> ট্যাবে যান এবং বাম পাশের মেনু থেকে <strong>Environment Variables</strong> এ ক্লিক করুন।</li>
+<li>নিচের ভেরিয়েবলগুলো সেখানে সঠিকভাবে যোগ করা আছে কিনা তা নিশ্চিত করুন:
+<ul>
+<li><code>GITHUB_ID</code>: আপনার GitHub OAuth App-এর Client ID।</li>
+<li><code>GITHUB_SECRET</code>: আপনার GitHub OAuth App-এর Client Secret।</li>
+<li><code>AUTH_SECRET</code>: একটি দীর্ঘ ও ইউনিক গোপন কোড। (টার্মিনালে <code>openssl rand -base64 32</code> লিখে একটি জেনারেট করতে পারেন)।</li>
+<li><code>AUTH_URL</code>: আপনার অ্যাপের মূল ঠিকানা। এখানে হবে <code>https://build-a-beast-last.vercel.app</code>।</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p><strong>বিশেষ দ্রষ্টব্য:</strong> নতুন কোনো ভেরিয়েবল যোগ করার পর বা পরিবর্তন করার পর, আপনাকে অবশ্যই আপনার প্রজেক্টটি <strong>পুনরায় ডিপ্লয় (Redeploy)</strong> করতে হবে। না হলে পরিবর্তনগুলো কার্যকর হবে না।</p>
+</blockquote>
+<h4 id="২-github-oauth-অ্যাপের-সেটিংস-চেক-করুন"><strong>২. GitHub OAuth অ্যাপের সেটিংস চেক করুন</strong> </h4>
+<p>আপনার GitHub অ্যাকাউন্টের সেটিংসও সঠিক হতে হবে।</p>
+<ol>
+<li>আপনার GitHub অ্যাকাউন্টে যান, তারপর <strong>Settings &gt; Developer settings &gt; OAuth Apps</strong> এ যান।</li>
+<li>আপনার অ্যাপটি সিলেক্ট করুন।</li>
+<li>নিচের দুটি জিনিস সঠিক আছে কিনা তা নিশ্চিত করুন:
+<ul>
+<li><strong>Homepage URL:</strong> <code>https://build-a-beast-last.vercel.app</code></li>
+<li><strong>Authorization callback URL:</strong> <code>https://build-a-beast-last.vercel.app/api/auth/callback/github</code>
+<ul>
+<li>এখানে কোনো রকম বানান ভুল বা <code>http</code> এর বদলে <code>https</code> না থাকলে চলবে না। হুবহু একই হতে হবে।</li>
+</ul>
+</li>
+</ul>
+</li>
+</ol>
+<h4 id="৩-আপনার-কোড-চেক-করুন-ঐচ্ছিক-কিন্তু-জরুরি"><strong>৩. আপনার কোড চেক করুন (ঐচ্ছিক কিন্তু জরুরি)</strong> </h4>
+<p>আপনার <code>app/api/auth/[...nextauth]/route.ts</code> (বা <code>.js</code>) ফাইলে দেখুন, আপনি <code>process.env</code> ব্যবহার করে ভেরিয়েবলগুলো সঠিকভাবে কল করছেন কিনা।</p>
+<pre data-role="codeBlock" data-info="javascript" class="language-javascript javascript"><code><span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">NextAuth</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">"next-auth"</span><span class="token punctuation">;</span>
+<span class="token keyword module keyword-import">import</span> <span class="token imports"><span class="token maybe-class-name">GithubProvider</span></span> <span class="token keyword module keyword-from">from</span> <span class="token string">"next-auth/providers/github"</span><span class="token punctuation">;</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token keyword keyword-const">const</span> authOptions <span class="token operator">=</span> <span class="token punctuation">{</span>
+  <span class="token literal-property property">providers</span><span class="token operator">:</span> <span class="token punctuation">[</span>
+    <span class="token function"><span class="token maybe-class-name">GithubProvider</span></span><span class="token punctuation">(</span><span class="token punctuation">{</span>
+      <span class="token literal-property property">clientId</span><span class="token operator">:</span> process<span class="token punctuation">.</span><span class="token property-access">env</span><span class="token punctuation">.</span><span class="token constant">GITHUB_ID</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// Vercel-এ দেওয়া নামের সাথে যেন মেলে</span>
+      <span class="token literal-property property">clientSecret</span><span class="token operator">:</span> process<span class="token punctuation">.</span><span class="token property-access">env</span><span class="token punctuation">.</span><span class="token constant">GITHUB_SECRET</span><span class="token operator">!</span><span class="token punctuation">,</span> <span class="token comment">// Vercel-এ দেওয়া নামের সাথে যেন মেলে</span>
+    <span class="token punctuation">}</span><span class="token punctuation">)</span><span class="token punctuation">,</span>
+  <span class="token punctuation">]</span><span class="token punctuation">,</span>
+<span class="token punctuation">}</span><span class="token punctuation">;</span>
+
+<span class="token keyword keyword-const">const</span> handler <span class="token operator">=</span> <span class="token function"><span class="token maybe-class-name">NextAuth</span></span><span class="token punctuation">(</span>authOptions<span class="token punctuation">)</span><span class="token punctuation">;</span>
+
+<span class="token keyword module keyword-export">export</span> <span class="token punctuation">{</span> handler <span class="token keyword module keyword-as">as</span> <span class="token constant">GET</span><span class="token punctuation">,</span> handler <span class="token keyword module keyword-as">as</span> <span class="token constant">POST</span> <span class="token punctuation">}</span><span class="token punctuation">;</span>
+</code></pre><p>আমার ধারণা, আপনার সমস্যাটি ১ নম্বর ধাপেই সমাধান হয়ে যাবে। Vercel-এ এনভায়রনমেন্ট ভেরিয়েবলগুলো ঠিকভাবে সেট করে আবার ডিপ্লয় করলেই GitHub সাইন-ইন কাজ করা শুরু করবে।</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
