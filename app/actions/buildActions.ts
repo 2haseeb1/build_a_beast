@@ -2,22 +2,43 @@
 
 "use server"; // ✅ এটি একটি সার্ভার অ্যাকশন ফাইল
 
+import { auth, signIn } from "@/auth";
 import { prisma } from "@/lib/prisma";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 import { ComponentType } from "@prisma/client";
 
-// এই ফাংশনটি এখন সরাসরি FormData গ্রহণ করবে
+// ✅ হোমপেজের জন্য সার্ভার অ্যাকশন
+export async function createBuild() {
+  const session = await auth();
+
+  if (!session?.user?.id) {
+    // ব্যবহারকারীকে লগইন করতে বাধ্য করুন
+    await signIn("github");
+    return;
+  }
+
+  const build = await prisma.build.create({
+    data: {
+      userId: session.user.id,
+      name: "My New PC Build",
+    },
+  });
+
+  redirect(`/builder/${build.id}`);
+}
+
+// ✅ কম্পোনেন্ট সিলেক্ট করার জন্য নতুন সার্ভার অ্যাকশন
 export async function selectComponentAction(formData: FormData) {
-  // FormData থেকে ভ্যালুগুলো পড়ুন
   const buildId = formData.get("buildId") as string;
-  const partId = formData.get("partId") as string | null; // এটি খালি স্ট্রিং বা null হতে পারে
+  const partId = formData.get("partId") as string;
   const type = formData.get("type") as ComponentType;
 
   if (!buildId || !type) {
     throw new Error("Build ID and component type are required.");
   }
 
-  // প্রথমে এই টাইপের কোনো কম্পোনেন্ট বিল্ডে আছে কিনা তা খুঁজুন
+  // এই টাইপের কম্পোনেন্ট আগে থেকেই বিল্ডে আছে কিনা তা খুঁজুন
   const existingLink = await prisma.buildComponent.findFirst({
     where: {
       buildId: buildId,
@@ -27,10 +48,10 @@ export async function selectComponentAction(formData: FormData) {
     },
   });
 
-  // যদি একটি নতুন পার্ট সিলেক্ট করা হয় (partId আছে)
+  // যদি একটি নতুন পার্ট সিলেক্ট করা হয় (partId খালি নয়)
   if (partId) {
     if (existingLink) {
-      // যদি এই টাইপের পার্ট আগে থেকেই থাকে, তাহলে সেটিকে নতুন পার্ট দিয়ে আপডেট করুন
+      // যদি আগে থেকেই থাকে, তাহলে সেটিকে নতুন পার্ট দিয়ে আপডেট করুন
       await prisma.buildComponent.update({
         where: { id: existingLink.id },
         data: { componentId: partId },
@@ -45,7 +66,7 @@ export async function selectComponentAction(formData: FormData) {
       });
     }
   } else {
-    // যদি partId না থাকে (অর্থাৎ রিমুভ করা হয়েছে), তাহলে existingLink টি ডিলিট করুন
+    // যদি partId খালি থাকে (অর্থাৎ রিমুভ করা হয়েছে), তাহলে existingLink টি ডিলিট করুন
     if (existingLink) {
       await prisma.buildComponent.delete({
         where: { id: existingLink.id },
@@ -53,6 +74,6 @@ export async function selectComponentAction(formData: FormData) {
     }
   }
 
-  // বিল্ডার পেজটি রিভ্যালিডেট করুন যাতে নতুন ডাটা দেখানো হয়
+  // বিল্ডার পেজটি রিভ্যালিডেট করুন যাতে UI তাৎক্ষণিকভাবে আপডেট হয়
   revalidatePath(`/builder/${buildId}`);
 }
