@@ -14,17 +14,21 @@ export const { handlers, auth, signIn, signOut } = NextAuth({
       clientSecret: process.env.AUTH_GITHUB_SECRET,
     }),
   ],
-  // ✅ callbacks যোগ করুন
+
+  // ✅ এই callbacks ব্লকটি যোগ করুন
   callbacks: {
-    // এই callback টি সেশনে ব্যবহারকারীর আইডি যোগ করার জন্য
+    // এই callback-টি সেশনে ব্যবহারকারীর আইডি যোগ করার জন্য
     async session({ session, token }) {
+      // টোকেন থেকে ব্যবহারকারীর আইডি (sub) নিয়ে সেশনে যোগ করুন
       if (token.sub && session.user) {
-        session.user.id = token.sub; // token.sub হলো ব্যবহারকারীর আইডি
+        session.user.id = token.sub;
       }
       return session;
     },
-    // এই callback টি নিশ্চিত করে যে JWT টোকেনে আইডি থাকবে
+
+    // এই callback-টি নিশ্চিত করে যে JWT টোকেনে ডাটাবেসের User ID থাকবে
     async jwt({ token, user }) {
+      // user অবজেক্টটি শুধুমাত্র প্রথমবার সাইন-ইন করার সময় পাওয়া যায়
       if (user) {
         token.sub = user.id;
       }
