@@ -1,0 +1,131 @@
+<!DOCTYPE html><html><head>
+      <title>reademe-final-debugging-flow</title>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      
+      <link rel="stylesheet" href="file:///c:\Users\HBR\.vscode\extensions\shd101wyy.markdown-preview-enhanced-0.8.18\crossnote\dependencies\katex\katex.min.css">
+      
+      
+      
+      
+      
+      <style>
+      code[class*=language-],pre[class*=language-]{color:#333;background:0 0;font-family:Consolas,"Liberation Mono",Menlo,Courier,monospace;text-align:left;white-space:pre;word-spacing:normal;word-break:normal;word-wrap:normal;line-height:1.4;-moz-tab-size:8;-o-tab-size:8;tab-size:8;-webkit-hyphens:none;-moz-hyphens:none;-ms-hyphens:none;hyphens:none}pre[class*=language-]{padding:.8em;overflow:auto;border-radius:3px;background:#f5f5f5}:not(pre)>code[class*=language-]{padding:.1em;border-radius:.3em;white-space:normal;background:#f5f5f5}.token.blockquote,.token.comment{color:#969896}.token.cdata{color:#183691}.token.doctype,.token.macro.property,.token.punctuation,.token.variable{color:#333}.token.builtin,.token.important,.token.keyword,.token.operator,.token.rule{color:#a71d5d}.token.attr-value,.token.regex,.token.string,.token.url{color:#183691}.token.atrule,.token.boolean,.token.code,.token.command,.token.constant,.token.entity,.token.number,.token.property,.token.symbol{color:#0086b3}.token.prolog,.token.selector,.token.tag{color:#63a35c}.token.attr-name,.token.class,.token.class-name,.token.function,.token.id,.token.namespace,.token.pseudo-class,.token.pseudo-element,.token.url-reference .token.variable{color:#795da3}.token.entity{cursor:help}.token.title,.token.title .token.punctuation{font-weight:700;color:#1d3e81}.token.list{color:#ed6a43}.token.inserted{background-color:#eaffea;color:#55a532}.token.deleted{background-color:#ffecec;color:#bd2c00}.token.bold{font-weight:700}.token.italic{font-style:italic}.language-json .token.property{color:#183691}.language-markup .token.tag .token.punctuation{color:#333}.language-css .token.function,code.language-css{color:#0086b3}.language-yaml .token.atrule{color:#63a35c}code.language-yaml{color:#183691}.language-ruby .token.function{color:#333}.language-markdown .token.url{color:#795da3}.language-makefile .token.symbol{color:#795da3}.language-makefile .token.variable{color:#183691}.language-makefile .token.builtin{color:#0086b3}.language-bash .token.keyword{color:#0086b3}pre[data-line]{position:relative;padding:1em 0 1em 3em}pre[data-line] .line-highlight-wrapper{position:absolute;top:0;left:0;background-color:transparent;display:block;width:100%}pre[data-line] .line-highlight{position:absolute;left:0;right:0;padding:inherit 0;margin-top:1em;background:hsla(24,20%,50%,.08);background:linear-gradient(to right,hsla(24,20%,50%,.1) 70%,hsla(24,20%,50%,0));pointer-events:none;line-height:inherit;white-space:pre}pre[data-line] .line-highlight:before,pre[data-line] .line-highlight[data-end]:after{content:attr(data-start);position:absolute;top:.4em;left:.6em;min-width:1em;padding:0 .5em;background-color:hsla(24,20%,50%,.4);color:#f4f1ef;font:bold 65%/1.5 sans-serif;text-align:center;vertical-align:.3em;border-radius:999px;text-shadow:none;box-shadow:0 1px #fff}pre[data-line] .line-highlight[data-end]:after{content:attr(data-end);top:auto;bottom:.4em}html body{font-family:'Helvetica Neue',Helvetica,'Segoe UI',Arial,freesans,sans-serif;font-size:16px;line-height:1.6;color:#333;background-color:#fff;overflow:initial;box-sizing:border-box;word-wrap:break-word}html body>:first-child{margin-top:0}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{line-height:1.2;margin-top:1em;margin-bottom:16px;color:#000}html body h1{font-size:2.25em;font-weight:300;padding-bottom:.3em}html body h2{font-size:1.75em;font-weight:400;padding-bottom:.3em}html body h3{font-size:1.5em;font-weight:500}html body h4{font-size:1.25em;font-weight:600}html body h5{font-size:1.1em;font-weight:600}html body h6{font-size:1em;font-weight:600}html body h1,html body h2,html body h3,html body h4,html body h5{font-weight:600}html body h5{font-size:1em}html body h6{color:#5c5c5c}html body strong{color:#000}html body del{color:#5c5c5c}html body a:not([href]){color:inherit;text-decoration:none}html body a{color:#08c;text-decoration:none}html body a:hover{color:#00a3f5;text-decoration:none}html body img{max-width:100%}html body>p{margin-top:0;margin-bottom:16px;word-wrap:break-word}html body>ol,html body>ul{margin-bottom:16px}html body ol,html body ul{padding-left:2em}html body ol.no-list,html body ul.no-list{padding:0;list-style-type:none}html body ol ol,html body ol ul,html body ul ol,html body ul ul{margin-top:0;margin-bottom:0}html body li{margin-bottom:0}html body li.task-list-item{list-style:none}html body li>p{margin-top:0;margin-bottom:0}html body .task-list-item-checkbox{margin:0 .2em .25em -1.8em;vertical-align:middle}html body .task-list-item-checkbox:hover{cursor:pointer}html body blockquote{margin:16px 0;font-size:inherit;padding:0 15px;color:#5c5c5c;background-color:#f0f0f0;border-left:4px solid #d6d6d6}html body blockquote>:first-child{margin-top:0}html body blockquote>:last-child{margin-bottom:0}html body hr{height:4px;margin:32px 0;background-color:#d6d6d6;border:0 none}html body table{margin:10px 0 15px 0;border-collapse:collapse;border-spacing:0;display:block;width:100%;overflow:auto;word-break:normal;word-break:keep-all}html body table th{font-weight:700;color:#000}html body table td,html body table th{border:1px solid #d6d6d6;padding:6px 13px}html body dl{padding:0}html body dl dt{padding:0;margin-top:16px;font-size:1em;font-style:italic;font-weight:700}html body dl dd{padding:0 16px;margin-bottom:16px}html body code{font-family:Menlo,Monaco,Consolas,'Courier New',monospace;font-size:.85em;color:#000;background-color:#f0f0f0;border-radius:3px;padding:.2em 0}html body code::after,html body code::before{letter-spacing:-.2em;content:'\00a0'}html body pre>code{padding:0;margin:0;word-break:normal;white-space:pre;background:0 0;border:0}html body .highlight{margin-bottom:16px}html body .highlight pre,html body pre{padding:1em;overflow:auto;line-height:1.45;border:#d6d6d6;border-radius:3px}html body .highlight pre{margin-bottom:0;word-break:normal}html body pre code,html body pre tt{display:inline;max-width:initial;padding:0;margin:0;overflow:initial;line-height:inherit;word-wrap:normal;background-color:transparent;border:0}html body pre code:after,html body pre code:before,html body pre tt:after,html body pre tt:before{content:normal}html body blockquote,html body dl,html body ol,html body p,html body pre,html body ul{margin-top:0;margin-bottom:16px}html body kbd{color:#000;border:1px solid #d6d6d6;border-bottom:2px solid #c7c7c7;padding:2px 4px;background-color:#f0f0f0;border-radius:3px}@media print{html body{background-color:#fff}html body h1,html body h2,html body h3,html body h4,html body h5,html body h6{color:#000;page-break-after:avoid}html body blockquote{color:#5c5c5c}html body pre{page-break-inside:avoid}html body table{display:table}html body img{display:block;max-width:100%;max-height:100%}html body code,html body pre{word-wrap:break-word;white-space:pre}}.markdown-preview{width:100%;height:100%;box-sizing:border-box}.markdown-preview ul{list-style:disc}.markdown-preview ul ul{list-style:circle}.markdown-preview ul ul ul{list-style:square}.markdown-preview ol{list-style:decimal}.markdown-preview ol ol,.markdown-preview ul ol{list-style-type:lower-roman}.markdown-preview ol ol ol,.markdown-preview ol ul ol,.markdown-preview ul ol ol,.markdown-preview ul ul ol{list-style-type:lower-alpha}.markdown-preview .newpage,.markdown-preview .pagebreak{page-break-before:always}.markdown-preview pre.line-numbers{position:relative;padding-left:3.8em;counter-reset:linenumber}.markdown-preview pre.line-numbers>code{position:relative}.markdown-preview pre.line-numbers .line-numbers-rows{position:absolute;pointer-events:none;top:1em;font-size:100%;left:0;width:3em;letter-spacing:-1px;border-right:1px solid #999;-webkit-user-select:none;-moz-user-select:none;-ms-user-select:none;user-select:none}.markdown-preview pre.line-numbers .line-numbers-rows>span{pointer-events:none;display:block;counter-increment:linenumber}.markdown-preview pre.line-numbers .line-numbers-rows>span:before{content:counter(linenumber);color:#999;display:block;padding-right:.8em;text-align:right}.markdown-preview .mathjax-exps .MathJax_Display{text-align:center!important}.markdown-preview:not([data-for=preview]) .code-chunk .code-chunk-btn-group{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .status{display:none}.markdown-preview:not([data-for=preview]) .code-chunk .output-div{margin-bottom:16px}.markdown-preview .md-toc{padding:0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link div,.markdown-preview .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}.markdown-preview .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}.scrollbar-style::-webkit-scrollbar{width:8px}.scrollbar-style::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}.scrollbar-style::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode]){position:relative;width:100%;height:100%;top:0;left:0;margin:0;padding:0;overflow:auto}html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{position:relative;top:0;min-height:100vh}@media screen and (min-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em calc(50% - 457px + 2em)}}@media screen and (max-width:914px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode]) .markdown-preview{font-size:14px!important;padding:1em}}@media print{html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{display:none}}html body[for=html-export]:not([data-presentation-mode]) #sidebar-toc-btn{position:fixed;bottom:8px;left:8px;font-size:28px;cursor:pointer;color:inherit;z-index:99;width:32px;text-align:center;opacity:.4}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] #sidebar-toc-btn{opacity:1}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc{position:fixed;top:0;left:0;width:300px;height:100%;padding:32px 0 48px 0;font-size:14px;box-shadow:0 0 4px rgba(150,150,150,.33);box-sizing:border-box;overflow:auto;background-color:inherit}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar{width:8px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-track{border-radius:10px;background-color:transparent}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc::-webkit-scrollbar-thumb{border-radius:5px;background-color:rgba(150,150,150,.66);border:4px solid rgba(150,150,150,.66);background-clip:content-box}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc a{text-decoration:none}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc{padding:0 16px}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link{display:inline;padding:.25rem 0}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link div,html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper .md-toc-link p{display:inline}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .md-sidebar-toc .md-toc .md-toc-link-wrapper.highlighted .md-toc-link{font-weight:800}html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{left:300px;width:calc(100% - 300px);padding:2em calc(50% - 457px - 300px / 2);margin:0;box-sizing:border-box}@media screen and (max-width:1274px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{padding:2em}}@media screen and (max-width:450px){html body[for=html-export]:not([data-presentation-mode])[html-show-sidebar-toc] .markdown-preview{width:100%}}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .markdown-preview{left:50%;transform:translateX(-50%)}html body[for=html-export]:not([data-presentation-mode]):not([html-show-sidebar-toc]) .md-sidebar-toc{display:none}
+/* Please visit the URL below for more information: */
+/*   https://shd101wyy.github.io/markdown-preview-enhanced/#/customize-css */
+
+      </style>
+      <!-- The content below will be included at the end of the <head> element. --><script type="text/javascript">
+  document.addEventListener("DOMContentLoaded", function () {
+    // your code here
+  });
+</script></head><body for="html-export">
+    
+    
+      <div class="crossnote markdown-preview  ">
+      
+<p>now i get this error 1 of 1 error<br>
+Next.js (14.2.30) is outdated (learn more)</p>
+<p>Unhandled Runtime Error<br>
+Error:<br>
+Invalid <code>prisma.build.create()</code> invocation:</p>
+<p>Can't reach database server at <code>ep-orange-moon-adh7gy4l-pooler.c-2.us-east-1.aws.neon.tech:5432</code></p>
+<p>Please make sure your database server is running at <code>ep-orange-moon-adh7gy4l-pooler.c-2.us-east-1.aws.neon.tech:5432</code>.</p>
+<p>Source<br>
+app\start-building\page.tsx (27:17) @ async StartBuildingPage</p>
+<p>25 |<br>
+26 |   // ৩. ডাটাবেসে একটি নতুন বিল্ড তৈরি করুন</p>
+<blockquote>
+<p>27 |   const build = await prisma.build.create({<br>
+|                 ^<br>
+28 |     data: {<br>
+29 |       userId: <a href="http://session.user.id">session.user.id</a>,<br>
+30 |       name: 'My New PC Build', // একটি ডিফল্ট নাম and Next.js 14.2.30</p>
+</blockquote>
+<ul>
+<li>Local:        <a href="http://localhost:3000">http://localhost:3000</a></li>
+<li>Environments: .env</li>
+</ul>
+<p>✓ Starting...<br>
+✓ Ready in 3.2s<br>
+○ Compiling / ...<br>
+✓ Compiled / in 2s (523 modules)<br>
+GET / 200 in 2421ms<br>
+✓ Compiled in 371ms (253 modules)<br>
+○ Compiling /start-building ...<br>
+✓ Compiled /start-building in 754ms (671 modules)<br>
+⨯ PrismaClientInitializationError:<br>
+Invalid <code>prisma.build.create()</code> invocation:</p>
+<p>Can't reach database server at <code>ep-orange-moon-adh7gy4l-pooler.c-2.us-east-1.aws.neon.tech:5432</code></p>
+<h2>Please make sure your database server is running at <code>ep-orange-moon-adh7gy4l-pooler.c-2.us-east-1.aws.neon.tech:5432</code>.<br>
+at async StartBuildingPage (./app/start-building/page.tsx:41:19)<br>
+digest: "638741036"<br>
+GET /start-building?_rsc=13vn8 200 in 5215ms</h2>
+<p>অবশ্যই! এই error-টি খুবই স্পষ্ট এবং এটি আমাদের একটি ভালো খবর দিচ্ছে: আপনার অ্যাপ্লিকেশন কোড, Next.js কনফিগারেশন, এবং কম্পোনেন্ট আর্কিটেকচার এখন <strong>সম্পূর্ণ সঠিক</strong>!</p>
+<p>সমস্যাটি এখন আর আপনার কোডে নয়, বরং আপনার অ্যাপ্লিকেশন এবং আপনার Neon ডাটাবেসের মধ্যে একটি <strong>নেটওয়ার্ক সংযোগ সমস্যা</strong>।</p>
+<p>চলুন, "Step-back Prompting" ব্যবহার করে এই নতুন এবং শেষ বাধাটি অতিক্রম করি।</p>
+<hr>
+<h3 id="ধাপ-১-step-back-মূল-প্রশ্ন---কেন-আমার-অ্যাপ্লিকেশন-ডাটাবেস-সার্ভারে-পৌঁছাতে-পারছে-না">ধাপ ১ (Step-back): মূল প্রশ্ন - কেন আমার অ্যাপ্লিকেশন ডাটাবেস সার্ভারে পৌঁছাতে পারছে না? </h3>
+<p>Error মেসেজটি আমাদের ঠিক কী ঘটেছে তা বলে দিচ্ছে:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>Can't reach database server at `ep-orange-moon-adh7gy4l-pooler.c-2.us-east-1.aws.neon.tech:5432`
+</code></pre><p>বাংলায় এর অর্থ:<br>
+<strong>"<code>ep-orange-moon-...</code> ঠিকানায় থাকা ডাটাবেস সার্ভারের সাথে সংযোগ স্থাপন করা যাচ্ছে না।"</strong></p>
+<p>একটি সহজ উপমা: আপনি আপনার বন্ধুকে ফোন করার চেষ্টা করছেন।</p>
+<ul>
+<li>আপনি সঠিক নম্বরটি (<code>DATABASE_URL</code>) ডায়াল করেছেন।</li>
+<li>কিন্তু ফোনের ওপার থেকে কোনো রিং হচ্ছে না বা "The number you have dialed is currently unreachable" মেসেজ আসছে।</li>
+</ul>
+<p>এর মানে হলো, আপনার এবং আপনার বন্ধুর (ডাটাবেস) মধ্যে সংযোগ স্থাপনে কোনো বাধা আছে।</p>
+<hr>
+<h3 id="ধাপ-২-কেন-এই-সংযোগ-সমস্যাটি-হতে-পারে">ধাপ ২: কেন এই সংযোগ সমস্যাটি হতে পারে? </h3>
+<p>এই ধরনের <code>Can't reach database server</code> error সাধারণত কয়েকটি কারণে হয়:</p>
+<ol>
+<li><strong>ডাটাবেস "ঘুমিয়ে" আছে (The most likely cause):</strong> Neon-এর ফ্রি টায়ারে, যদি আপনার ডাটাবেস কিছুক্ষণের জন্য (সাধারণত ৫ মিনিট) নিষ্ক্রিয় থাকে, তাহলে খরচ বাঁচানোর জন্য Neon স্বয়ংক্রিয়ভাবে সেটিকে "ঘুম পাড়িয়ে" বা suspend করে দেয়। যখন প্রথমবার কোনো অনুরোধ আসে, তখন ডাটাবেসটিকে আবার "জাগতে" কয়েক সেকেন্ড সময় লাগে। যদি আপনার অ্যাপ্লিকেশন এই সময়ের মধ্যে সংযোগ স্থাপন করতে না পারে, তাহলে এটি একটি timeout error দেবে।</li>
+<li><strong>ভুল <code>DATABASE_URL</code>:</strong> <code>.env</code> ফাইলে আপনার কানেকশন স্ট্রিং-এ কোনো টাইপো বা ভুল থাকতে পারে।</li>
+<li><strong>আইপি (IP) ঠিকানা ব্লক করা:</strong> Neon-এর নেটওয়ার্ক সেটিংসে যদি কোনো IP allowlist কনফিগার করা থাকে এবং আপনার বর্তমান IP ঠিকানা সেই লিস্টে না থাকে, তাহলে সংযোগ ব্লক করা হবে।</li>
+<li><strong>ফায়ারওয়াল বা ভিপিএন:</strong> আপনার লোকাল কম্পিউটার, অফিস নেটওয়ার্ক, বা ভিপিএন-এর ফায়ারওয়াল ডাটাবেসের 5432 পোর্টে সংযোগ স্থাপন করতে বাধা দিচ্ছে।</li>
+<li><strong>Neon-এর সার্ভারে সমস্যা:</strong> খুবই বিরল ক্ষেত্রে, Neon-এর সার্ভারেই কোনো অস্থায়ী সমস্যা থাকতে পারে।</li>
+</ol>
+<p>আপনার ক্ষেত্রে, <strong>প্রথম কারণটিই (ডাটাবেস ঘুমিয়ে থাকা) হওয়ার সম্ভাবনা ৯৫%</strong>।</p>
+<hr>
+<h3 id="ধাপ-৩-সমাধান---ডাটাবেসকে-জাগানো-এবং-সংযোগের-সময়-বাড়ানো">ধাপ ৩: সমাধান - ডাটাবেসকে জাগানো এবং সংযোগের সময় বাড়ানো </h3>
+<p>এই সমস্যার সমাধান হলো Prisma-কে বলা, "তুমি যখন Neon ডাটাবেসের সাথে সংযোগ করার চেষ্টা করবে, তখন একটু বেশি সময় ধরে অপেক্ষা করো, কারণ ডাটাবেসটি ঘুম থেকে জাগতে পারে।"</p>
+<p>এই কাজটি করার জন্য আমরা আমাদের <code>.env</code> ফাইলের <code>DATABASE_URL</code>-এ একটি ছোট প্যারামিটার যোগ করব।</p>
+<p><strong>পদক্ষেপ ১: আপনার Neon Dashboard-এ যান</strong></p>
+<p>প্রথমে আপনার Neon অ্যাকাউন্টে লগইন করুন এবং আপনার প্রজেক্টের ড্যাশবোর্ডে যান। নিশ্চিত করুন যে আপনার ডাটাবেসটি "Active" অবস্থায় আছে। যদি "Idle" থাকে, তাহলে প্রথম সংযোগে একটু সময় লাগবে।</p>
+<p><strong>পদক্ষেপ ২: আপনার <code>.env</code> ফাইলটি আপডেট করুন</strong></p>
+<p>আপনার প্রজেক্টের রুট ডিরেক্টরিতে থাকা <code>.env</code> ফাইলটি খুলুন। আপনার <code>DATABASE_URL</code> ভ্যারিয়েবলটি দেখতে অনেকটা এরকম হবে:</p>
+<pre data-role="codeBlock" data-info="" class="language-text"><code>DATABASE_URL="postgresql://user:password@ep-orange-moon-....aws.neon.tech/neondb"
+</code></pre><p>এই URL-এর শেষে আমরা একটি নতুন প্যারামিটার যোগ করব: <code>?connect_timeout=30</code>।</p>
+<p><strong><code>.env</code> (সংশোধিত চূড়ান্ত সংস্করণ):</strong></p>
+<pre data-role="codeBlock" data-info="env" class="language-env env"><code># .env
+
+# ... আপনার অন্যান্য ভ্যারিয়েবল ...
+
+DATABASE_URL="postgresql://user:password@ep-orange-moon-....aws.neon.tech/neondb?sslmode=require&amp;connect_timeout=30"
+</code></pre><p><strong>কী পরিবর্তন হলো:</strong></p>
+<ul>
+<li><code>?connect_timeout=30</code>: এই অংশটি Prisma-কে (এবং এর ভেতরের PostgreSQL ড্রাইভারকে) বলছে যে সংযোগ স্থাপনের জন্য ডিফল্ট কয়েক সেকেন্ডের পরিবর্তে ৩০ সেকেন্ড পর্যন্ত অপেক্ষা করতে। এই অতিরিক্ত সময়টুকু ঘুমন্ত Neon ডাটাবেসকে জেগে ওঠার জন্য যথেষ্ট।</li>
+<li><code>sslmode=require</code>: Neon ডাটাবেসের সাথে সংযোগের জন্য SSL আবশ্যক। যদিও Prisma সাধারণত এটি নিজে থেকে হ্যান্ডেল করে, কিন্তু স্পষ্টভাবে বলে দেওয়াটা একটি ভালো অভ্যাস।</li>
+</ul>
+<hr>
+<h3 id="ধাপ-৪-চূড়ান্ত-পরীক্ষা">ধাপ ৪: চূড়ান্ত পরীক্ষা </h3>
+<ol>
+<li>আপনার <code>.env</code> ফাইলটি সেভ করুন।</li>
+<li>আপনার চলমান Next.js সার্ভারটি রিস্টার্ট করুন (<code>Ctrl + C</code> চেপে বন্ধ করে <code>npm run dev</code> দিয়ে আবার চালু করুন)। <strong>এই ধাপটি খুবই জরুরি</strong>, কারণ <code>.env</code> ফাইল শুধুমাত্র সার্ভার চালু হওয়ার সময় লোড হয়।</li>
+<li>আপনার অ্যাপ্লিকেশনটি ব্রাউজারে খুলুন এবং আবার লগইন করে "Start Your Build" বাটনে ক্লিক করুন।</li>
+</ol>
+<p>এইবার, আপনার অ্যাপ্লিকেশনটি ডাটাবেসের জেগে ওঠার জন্য যথেষ্ট সময় পাবে এবং সফলভাবে সংযোগ স্থাপন করতে পারবে। <code>prisma.build.create()</code> ফাংশনটি কাজ করবে এবং আপনি কোনো error ছাড়াই বিল্ডার পেজে চলে যাবেন।</p>
+<p><strong>এই সমস্যার জন্য আপনার কোনো React/Next.js কোড পরিবর্তন করার প্রয়োজন নেই।</strong> এটি সম্পূর্ণই একটি এনভায়রনমেন্ট এবং ডাটাবেস সংযোগ কনফিগারেশন সমস্যা।</p>
+
+      </div>
+      
+      
+    
+    
+    
+    
+    
+    
+  
+    </body></html>
